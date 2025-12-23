@@ -25,6 +25,11 @@ export const translations = {
     en: 'All periods',
     gr: 'Όλες οι περίοδοι',
   },
+  clickToExplore: {
+    ru: 'Нажмите, чтобы узнать больше',
+    en: 'Click to explore',
+    gr: 'Κάντε κλικ για να εξερευνήσετε',
+  },
   
   // Periods
   periods: {
