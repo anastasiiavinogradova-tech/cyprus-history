@@ -37,3 +37,10 @@ next-env.d.ts
 
 # video files (too large for git)
 /public/videos/*.mp4
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
