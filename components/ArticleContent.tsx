@@ -24,7 +24,7 @@ export default function ArticleContent({ chapter, onMapPointClick }: ArticleCont
     <article className="max-w-4xl mx-auto px-6 py-12">
       {/* Article Header */}
       <header className="mb-8">
-        <h1 className="text-4xl md:text-5xl font-playfair font-bold mb-4 text-gray-900">
+        <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4 text-gray-900">
           {chapter.title[language]}
         </h1>
       </header>

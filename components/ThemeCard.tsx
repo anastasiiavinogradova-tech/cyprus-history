@@ -31,7 +31,7 @@ export default function ThemeCard({ theme }: ThemeCardProps) {
       </div>
       
       <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-        <h3 className="text-2xl font-playfair font-semibold mb-2 transform transition-transform duration-300 group-hover:translate-y-[-4px]">
+        <h3 className="text-2xl font-serif font-semibold mb-2 transform transition-transform duration-300 group-hover:translate-y-[-4px]">
           {theme.title[language]}
         </h3>
         <p className="text-sm text-gray-200 line-clamp-2 opacity-90">

@@ -31,7 +31,7 @@ export default function ThemePage() {
     return (
       <div className="min-h-screen pt-20 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-playfair font-semibold mb-4">
+          <h1 className="text-2xl font-serif font-semibold mb-4">
             {language === 'ru' ? 'Тема не найдена' : language === 'gr' ? 'Το θέμα δεν βρέθηκε' : 'Theme not found'}
           </h1>
           <Link href="/" className="text-gray-600 hover:text-gray-900 underline">

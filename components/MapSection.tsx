@@ -102,7 +102,7 @@ export default function MapSection({ mapPoints, activeMapPointId }: MapSectionPr
   return (
     <section className="py-12 bg-white" id="map">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-3xl font-playfair font-semibold mb-8 text-gray-900">
+        <h2 className="text-3xl font-serif font-semibold mb-8 text-gray-900">
           {t('map', language)}
         </h2>
         

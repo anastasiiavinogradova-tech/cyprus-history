@@ -27,7 +27,7 @@ export default function VideoPreview({ videos }: VideoPreviewProps) {
   return (
     <section className="py-12 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-3xl font-playfair font-semibold mb-8 text-gray-900">
+        <h2 className="text-3xl font-serif font-semibold mb-8 text-gray-900">
           {language === 'ru' ? 'Видео материалы' : language === 'gr' ? 'Βίντεο Υλικό' : 'Video Content'}
         </h2>
         
