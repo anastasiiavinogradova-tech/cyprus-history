@@ -1,88 +1,36 @@
-# Cyprus History - Кипр. История
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-🌍 **Live Demo**: Coming soon on Vercel
+## Getting Started
 
-A beautiful, interactive website exploring the rich history of Cyprus through immersive content, interactive maps, and multimedia presentations.
-
-## ✨ Features
-
-- 🌐 **Multi-language Support**: Full support for Russian, English, and Greek languages
-- 🗺️ **Interactive Maps**: Explore historical locations with Leaflet.js integration
-- 📚 **Rich Content**: Detailed articles about Cyprus history across different periods
-- 🎥 **Video Content**: Three types of video materials - Short Stories, Video Briefs, and Deep Dive Podcasts
-- 🎨 **Responsive Design**: Beautiful UI inspired by Google Arts & Culture
-- 🔍 **Period Filtering**: Browse content by historical periods
-
-## 🚀 Tech Stack
-
-- **Framework**: Next.js 16 with App Router
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Maps**: Leaflet.js & React-Leaflet
-- **Fonts**: Playfair Display (headings), Inter (body text)
-
-## 📦 Installation
+First, run the development server:
 
 ```bash
-# Clone the repository
-git clone https://github.com/anastasiiavinogradova-tech/cyprus-history.git
-
-# Install dependencies
-cd cyprus-history
-npm install
-
-# Run development server
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## 🌟 Featured Content
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-### Ancient Myths of Cyprus
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-Fully implemented theme with 6 chapters:
-1. **Birth of Aphrodite** - Petra tou Romiou
-2. **Sanctuary of Aphrodite** - Paphos
-3. **Adonis: Love, Death and Rebirth** - Diarizos River
-4. **Cinyras** - Ancient Paphos
-5. **Amathus** - City of ancient cults
-6. **Heroes and the Sea** - Salamis
+## Learn More
 
-## 📖 Historical Periods
+To learn more about Next.js, take a look at the following resources:
 
-1. Mythology and Prehistoric Cyprus
-2. Antiquity
-3. Byzantine Period
-4. Lusignan Period
-5. Venetian Period
-6. Ottoman Period
-7. British Period
-8. Modern History (20th Century)
-9. 21st Century
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## 🛠️ Development
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-```bash
-# Development
-npm run dev
+## Deploy on Vercel
 
-# Build for production
-npm run build
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-# Start production server
-npm start
-
-# Lint
-npm run lint
-```
-
-## 📝 License
-
-Created for educational and cultural purposes.
-
-## 🙏 Acknowledgments
-
-- Images from Picsum Photos
-- Map data from OpenStreetMap
-- Historical content researched from academic sources
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
