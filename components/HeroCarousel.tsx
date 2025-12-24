@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { useLanguage } from '@/lib/LanguageContext';
 import { t } from '@/data/translations';
 
@@ -51,6 +52,18 @@ export default function HeroCarousel({ onPeriodSelect }: HeroCarouselProps) {
   return (
     <div className="w-full py-8 md:py-16 px-4 md:px-6 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto">
+        {/* Subtitle */}
+        <p className="text-sm md:text-base text-gray-500 text-center mb-3">
+          This website is a visual aid to{' '}
+          <Link 
+            href="/mvp-concept" 
+            className="text-gray-700 hover:text-gray-900 underline transition-colors duration-200"
+          >
+            MVP CONCEPT
+          </Link>
+        </p>
+        
+        {/* Main Title */}
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 md:mb-12 text-gray-900 uppercase">
           EXPLORE CYPRUS HISTORY
         </h2>
