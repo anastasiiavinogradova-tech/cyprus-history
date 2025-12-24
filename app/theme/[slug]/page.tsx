@@ -52,47 +52,52 @@ export default function ThemePage() {
 
   return (
     <div className="min-h-screen pt-20">
-      {/* Theme Navigation */}
-      {theme.chapters.length > 0 && (
-        <ThemeNavigation
-          chapters={theme.chapters}
-          activeChapterId={activeChapterId}
-          onChapterChange={setActiveChapterId}
-        />
-      )}
+      <div className="flex">
+        {/* Left Sidebar Navigation (Desktop only) */}
+        {theme.chapters.length > 0 && (
+          <ThemeNavigation
+            chapters={theme.chapters}
+            activeChapterId={activeChapterId}
+            onChapterChange={setActiveChapterId}
+          />
+        )}
 
-      {/* Article Content */}
-      {activeChapter && (
-        <ArticleContent
-          chapter={activeChapter}
-          onMapPointClick={handleMapPointClick}
-        />
-      )}
+        {/* Right Content Area */}
+        <div className="flex-1 min-w-0">
+          {/* Article Content */}
+          {activeChapter && (
+            <ArticleContent
+              chapter={activeChapter}
+              onMapPointClick={handleMapPointClick}
+            />
+          )}
 
-      {/* Video Preview - Only show for ancient-myths theme */}
-      {slug === 'ancient-myths' && (
-        <VideoPreview videos={ancientMythsVideos} />
-      )}
+          {/* Video Preview - Only show for ancient-myths theme */}
+          {slug === 'ancient-myths' && (
+            <VideoPreview videos={ancientMythsVideos} />
+          )}
 
-      {/* Map Section */}
-      {theme.mapPoints.length > 0 && (
-        <MapSection
-          mapPoints={theme.mapPoints}
-          activeMapPointId={activeMapPointId}
-        />
-      )}
+          {/* Map Section */}
+          {theme.mapPoints.length > 0 && (
+            <MapSection
+              mapPoints={theme.mapPoints}
+              activeMapPointId={activeMapPointId}
+            />
+          )}
 
-      {/* Back to Home */}
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        <Link 
-          href="/" 
-          className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
-        >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-          </svg>
-          {t('backToHome', language)}
-        </Link>
+          {/* Back to Home */}
+          <div className="max-w-4xl mx-auto px-6 py-12">
+            <Link 
+              href="/" 
+              className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              {t('backToHome', language)}
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );
