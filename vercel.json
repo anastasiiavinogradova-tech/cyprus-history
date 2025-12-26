@@ -1,5 +1,5 @@
 {
-  "buildCommand": "git lfs pull && npm run build",
+  "buildCommand": "bash scripts/build-with-lfs.sh",
   "framework": "nextjs",
   "installCommand": "npm install"
 }
