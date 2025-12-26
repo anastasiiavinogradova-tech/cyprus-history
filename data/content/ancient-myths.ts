@@ -121,7 +121,7 @@ Cyprus earned the nickname "Island of Aphrodite", and the goddess's cult flouris
 
 Η Κύπρος απέκτησε το παρατσούκλι "Νησί της Αφροδίτης", και η λατρεία της θεάς άνθισε εδώ για πάνω από χίλια χρόνια. Οι ναοί προς τιμήν της ήταν κέντρα προσκυνήματος του αρχαίου κόσμου.`,
     },
-    image: 'https://picsum.photos/seed/aphrodite-birth/1200/800',
+    image: '/images/themes/Botticelli_Birth_of_Venus.webp',
     mapPointId: 'petra-tou-romiou',
   },
   {

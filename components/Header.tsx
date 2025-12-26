@@ -17,6 +17,22 @@ export default function Header() {
           </h1>
         </Link>
         
+        {/* Navigation Menu */}
+        <nav className="hidden md:flex items-center gap-8">
+          <Link 
+            href="/places" 
+            className="text-gray-700 hover:text-gray-900 font-medium transition-colors"
+          >
+            Places
+          </Link>
+          <Link 
+            href="/events" 
+            className="text-gray-700 hover:text-gray-900 font-medium transition-colors"
+          >
+            Events
+          </Link>
+        </nav>
+
         <LanguageSwitcher />
       </div>
     </header>

@@ -1,7 +1,26 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useLanguage } from '@/lib/LanguageContext';
+import { t } from '@/data/translations';
 
 export default function MVPConceptPage() {
+  const { language, setLanguage } = useLanguage();
+  const previousLanguage = useRef(language);
+  
+  useEffect(() => {
+    // Save current language and switch to Russian
+    previousLanguage.current = language;
+    setLanguage('ru');
+    
+    // Restore previous language on unmount
+    return () => {
+      setLanguage(previousLanguage.current);
+    };
+  }, []);
+  
   return (
     <div className="min-h-screen pt-20 bg-gradient-to-b from-gray-50 to-white">
       {/* Back button */}
@@ -23,7 +42,7 @@ export default function MVPConceptPage() {
               d="M15 19l-7-7 7-7"
             />
           </svg>
-          Назад на главную
+          {t('backToHome', language)}
         </Link>
       </div>
 
@@ -42,14 +61,14 @@ export default function MVPConceptPage() {
         <div className="relative max-w-7xl mx-auto px-6 py-20 md:py-32">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-lg">
-              Кипр. История
+              {t('mvpPage.heroTitle', language)}
             </h1>
             <p className="text-xl md:text-2xl text-white mb-8 leading-relaxed drop-shadow-md">
-              Цифровой медиа-проект, посвящённый истории, культуре и мифологии Кипра
+              {t('mvpPage.heroSubtitle', language)}
             </p>
             <div className="inline-block bg-white/90 backdrop-blur-md rounded-2xl px-8 py-6 shadow-2xl">
               <p className="text-lg text-gray-900 font-medium">
-                Единая точка входа в культурное и историческое знание об острове
+                {t('mvpPage.heroDescription', language)}
               </p>
             </div>
           </div>
@@ -61,12 +80,10 @@ export default function MVPConceptPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
-              Миссия проекта
+              {t('mvpPage.missionTitle', language)}
             </h2>
             <p className="text-xl text-gray-700 leading-relaxed mb-12">
-              Популяризировать историю и культурное наследие Кипра, делая его доступным, 
-              интересным и полезным для широкой аудитории, без упрощения смысла и без 
-              академической отстранённости.
+              {t('mvpPage.missionText', language)}
             </p>
             
             {/* Value Cards */}
@@ -77,8 +94,8 @@ export default function MVPConceptPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Репутация</h3>
-                <p className="text-gray-700">Поддержка культурной идентичности региона</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">{t('mvpPage.reputation', language)}</h3>
+                <p className="text-gray-700">{t('mvpPage.reputationDesc', language)}</p>
               </div>
 
               <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 text-center transform hover:scale-105 transition-transform duration-300">
@@ -117,7 +134,7 @@ export default function MVPConceptPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Какие разрывы заполняет проект
+              {t('mvpPage.whyNeededTitle', language)}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               У Кипра отсутствует единый современный цифровой продукт, который бы системно 
@@ -689,7 +706,7 @@ export default function MVPConceptPage() {
               Точки контакта с аудиторией
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Многоканальная экосистема для максимального охвата
+              Запуск сразу на нескольких платформах создает больше точек контакта с аудиторией и ускоряет рост проекта
             </p>
           </div>
 
@@ -800,6 +817,37 @@ export default function MVPConceptPage() {
                   <span>Воронка в основной контент</span>
                 </li>
               </ul>
+            </div>
+          </div>
+
+          {/* Events Block - full width */}
+          <div className="mt-12">
+            <div className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-3xl p-10 shadow-xl">
+              <div className="flex items-start gap-8">
+                {/* Icon */}
+                <div className="flex-shrink-0">
+                  <div className="w-20 h-20 bg-gradient-to-br from-teal-500 to-blue-600 rounded-2xl flex items-center justify-center">
+                    <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="flex-1">
+                  <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                    Афиша мероприятий
+                  </h3>
+                  <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                    Афиша мероприятий позволяет привлекать аудиторию через интерес к досугу и событиям, 
+                    превращая портал в культурный навигатор.
+                  </p>
+                  <p className="text-lg text-gray-700 leading-relaxed">
+                    Это создаёт органический трафик даже тогда, когда пользователь не ищет просвещение, 
+                    а ищет впечатления.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1282,12 +1330,69 @@ export default function MVPConceptPage() {
         </div>
       </section>
 
+      {/* Budget Block */}
+      <section className="py-12 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="bg-white rounded-3xl p-10 shadow-md border border-gray-200">
+            <div className="flex items-start gap-6">
+              {/* Icon */}
+              <div className="flex-shrink-0">
+                <div className="w-14 h-14 bg-gray-100 rounded-2xl flex items-center justify-center">
+                  <svg className="w-7 h-7 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="flex-1">
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                  Бюджет MVP
+                </h3>
+                <div className="text-2xl font-semibold text-gray-700 mb-5">
+                  ≈ 85 000 euro
+                </div>
+                
+                <ul className="space-y-2 text-gray-600 mb-5">
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-400 mt-1">•</span>
+                    <span>креативная курация и создание визуального стиля</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-400 mt-1">•</span>
+                    <span>редакторская работа и настройка фактчекинга</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-400 mt-1">•</span>
+                    <span>производство контента</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-400 mt-1">•</span>
+                    <span>кроссплатформенная дистрибуция</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-400 mt-1">•</span>
+                    <span>настройка воркфлоу автоматизированного AI производства после этапа MVP</span>
+                  </li>
+                </ul>
+
+                <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
+                  <p className="text-sm text-gray-600 italic">
+                    Разработка web application не учтена в стоимости и может обсуждаться отдельно.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Success Criteria */}
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Критерий успешности MVP
+              Результаты стадии MVP
             </h2>
           </div>
 
@@ -1309,7 +1414,7 @@ export default function MVPConceptPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Управляемый рост аудитории</h3>
-              <p className="text-gray-700">Растущие охваты и вовлечение аудитории</p>
+                <p className="text-gray-700">Растущие охваты и вовлечение аудитории. Готовность к выходу на новые сегменты аудитории, например создание раздела для детей.</p>
             </div>
 
             <div className="bg-white rounded-2xl p-8 shadow-lg text-center">
@@ -1319,7 +1424,7 @@ export default function MVPConceptPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Готовность к масштабированию</h3>
-              <p className="text-gray-700">По темам, форматам и языкам</p>
+                <p className="text-gray-700">По темам, форматам и языкам с оптимизированной стоимостью единицы контента.</p>
             </div>
           </div>
         </div>
@@ -1336,7 +1441,7 @@ export default function MVPConceptPage() {
             className="object-cover"
           />
           {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/95 via-purple-600/95 to-pink-600/95"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/70 via-purple-600/70 to-pink-600/70"></div>
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center text-white">
@@ -1344,7 +1449,7 @@ export default function MVPConceptPage() {
             Культурный актив с долгосрочной ценностью
           </h2>
           <p className="text-xl md:text-2xl mb-12 opacity-90">
-            Репутационный проект, создающий цифровое наследие Кипра
+            {t('mvpPage.missionSubtitle', language)}
           </p>
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -1352,7 +1457,7 @@ export default function MVPConceptPage() {
                 href="/"
                 className="bg-white text-indigo-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors duration-200"
               >
-                Смотреть схему сайта
+                {t('mvpPage.viewSiteMap', language)}
               </Link>
             </div>
           </div>
