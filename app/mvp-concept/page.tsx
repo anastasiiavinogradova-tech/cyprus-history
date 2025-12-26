@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useLanguage } from '@/lib/LanguageContext';
 import { t } from '@/data/translations';
+import OptimizedVideoPlayer from '@/components/OptimizedVideoPlayer';
 
 export default function MVPConceptPage() {
   const { language, setLanguage } = useLanguage();
@@ -570,14 +571,11 @@ export default function MVPConceptPage() {
               </div>
               <div className="order-1 md:order-2">
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black">
-                  <video 
-                    controls 
-                    className="w-full aspect-video"
+                  <OptimizedVideoPlayer
+                    src="/videos/3 Наказания Для Жены В Средневековье!.mp4"
                     poster="/images/themes/ancient-myths-shorts-thumb.png"
-                  >
-                    <source src="/videos/3 Наказания Для Жены В Средневековье!.mp4" type="video/mp4" />
-                    Ваш браузер не поддерживает видео.
-                  </video>
+                    autoPlayOnView={true}
+                  />
                 </div>
               </div>
             </div>
@@ -618,14 +616,11 @@ export default function MVPConceptPage() {
               </div>
               <div className="order-1">
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black">
-                  <video 
-                    controls 
-                    className="w-full aspect-video"
+                  <OptimizedVideoPlayer
+                    src="/videos/Древняя Греция за 18 минут (1).mp4"
                     poster="/images/themes/ancient-myths-summary-thumb.png"
-                  >
-                    <source src="/videos/Древняя Греция за 18 минут (1).mp4" type="video/mp4" />
-                    Ваш браузер не поддерживает видео.
-                  </video>
+                    autoPlayOnView={true}
+                  />
                 </div>
               </div>
             </div>
@@ -665,13 +660,10 @@ export default function MVPConceptPage() {
               </div>
               <div className="order-1 md:order-2">
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black">
-                  <video 
-                    controls 
-                    className="w-full aspect-video"
-                  >
-                    <source src="/videos/🌙 ЛЕКЦИЯ ДЛЯ СНА_ Боги и мифы Древней Греции (1).mp4" type="video/mp4" />
-                    Ваш браузер не поддерживает видео.
-                  </video>
+                  <OptimizedVideoPlayer
+                    src="/videos/🌙 ЛЕКЦИЯ ДЛЯ СНА_ Боги и мифы Древней Греции (1).mp4"
+                    autoPlayOnView={true}
+                  />
                 </div>
               </div>
             </div>
