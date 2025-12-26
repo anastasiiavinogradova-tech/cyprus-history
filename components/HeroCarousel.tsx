@@ -12,28 +12,28 @@ interface HeroCarouselProps {
 const heroImages = [
   {
     period: 'mythology',
-    image: 'https://picsum.photos/seed/cyprus-myths-hero/800/600',
+    image: '/images/themes/hero-carousel/hero-mythology.png',
     key: 'periods.mythology',
   },
   {
     period: 'antiquity',
-    image: 'https://picsum.photos/seed/antiquity-hero/800/600',
+    image: '/images/themes/hero-carousel/hero-antiquity.png',
     key: 'periods.antiquity',
   },
   {
     period: 'byzantine',
-    image: 'https://picsum.photos/seed/byzantine-hero/800/600',
+    image: '/images/themes/hero-carousel/hero-byzantine.png',
     key: 'periods.byzantine',
   },
   {
-    period: 'lusignan',
-    image: 'https://picsum.photos/seed/lusignan-hero/800/600',
-    key: 'periods.lusignan',
+    period: 'british',
+    image: '/images/themes/hero-carousel/hero-british.png',
+    key: 'periods.british',
   },
   {
-    period: 'venetian',
-    image: 'https://picsum.photos/seed/venetian-hero/800/600',
-    key: 'periods.venetian',
+    period: 'century21',
+    image: '/images/themes/hero-carousel/hero-century21.png',
+    key: 'periods.century21',
   },
 ];
 

@@ -27,7 +27,7 @@ export default function ThemeCard({ theme }: ThemeCardProps) {
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           priority={false}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-gradient-to-t from-teal-900/85 via-teal-700/40 to-transparent opacity-90 group-hover:opacity-95 transition-opacity duration-300" />
       </div>
       
       <div className="absolute bottom-0 left-0 right-0 p-6 text-white">

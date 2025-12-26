@@ -1,11 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
-import ThemeNavigation from '@/components/ThemeNavigation';
-import ArticleContent from '@/components/ArticleContent';
-import VideoPreview from '@/components/VideoPreview';
+import ArzamasHero from '@/components/ArzamasHero';
+import ActionNav from '@/components/ActionNav';
+import WatchSection from '@/components/WatchSection';
+import ReadSection from '@/components/ReadSection';
 import MapSection from '@/components/MapSection';
 import { getThemeBySlug } from '@/data/themes';
 import { ancientMythsVideos } from '@/data/content/ancient-myths';
@@ -18,14 +18,6 @@ export default function ThemePage() {
   const { language } = useLanguage();
   
   const theme = getThemeBySlug(slug);
-  const [activeChapterId, setActiveChapterId] = useState<string>('');
-  const [activeMapPointId, setActiveMapPointId] = useState<string | undefined>();
-
-  useEffect(() => {
-    if (theme && theme.chapters.length > 0 && !activeChapterId) {
-      setActiveChapterId(theme.chapters[0].id);
-    }
-  }, [theme]);
 
   if (!theme) {
     return (
@@ -42,62 +34,75 @@ export default function ThemePage() {
     );
   }
 
-  const activeChapter = theme.chapters.find(ch => ch.id === activeChapterId) || theme.chapters[0];
-
-  const handleMapPointClick = (mapPointId: string) => {
-    setActiveMapPointId(mapPointId);
-    // Scroll to map
-    document.getElementById('map')?.scrollIntoView({ behavior: 'smooth' });
-  };
+  // Determine what sections to show
+  const hasVideos = slug === 'ancient-myths' && ancientMythsVideos.length > 0;
+  const hasChapters = theme.chapters.length > 0;
+  const hasMap = theme.mapPoints.length > 0;
 
   return (
-    <div className="min-h-screen pt-20">
-      <div className="flex">
-        {/* Left Sidebar Navigation (Desktop only) */}
-        {theme.chapters.length > 0 && (
-          <ThemeNavigation
-            chapters={theme.chapters}
-            activeChapterId={activeChapterId}
-            onChapterChange={setActiveChapterId}
-          />
-        )}
+    <div className="min-h-screen pt-20 bg-white">
+      {/* Hero Section */}
+      <ArzamasHero theme={theme} />
 
-        {/* Right Content Area */}
-        <div className="flex-1 min-w-0">
-          {/* Article Content */}
-          {activeChapter && (
-            <ArticleContent
-              chapter={activeChapter}
-              onMapPointClick={handleMapPointClick}
-            />
-          )}
+      {/* Sticky Navigation */}
+      <ActionNav
+        hasVideo={hasVideos}
+        hasPodcast={true}
+        hasChapters={hasChapters}
+        hasMap={hasMap}
+      />
 
-          {/* Video Preview - Only show for ancient-myths theme */}
-          {slug === 'ancient-myths' && (
-            <VideoPreview videos={ancientMythsVideos} />
-          )}
+      {/* Content Sections */}
+      {/* Watch Section now includes Listen integrated */}
+      {hasVideos && <WatchSection videos={ancientMythsVideos} />}
 
-          {/* Map Section */}
-          {theme.mapPoints.length > 0 && (
-            <MapSection
-              mapPoints={theme.mapPoints}
-              activeMapPointId={activeMapPointId}
-            />
-          )}
-
-          {/* Back to Home */}
-          <div className="max-w-4xl mx-auto px-6 py-12">
-            <Link 
-              href="/" 
-              className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-              </svg>
-              {t('backToHome', language)}
-            </Link>
+      {/* Read Section - now numbered as 3 */}
+      {hasChapters && (
+        <section id="read" className="py-16 md:py-24 bg-white">
+          <div className="max-w-7xl mx-auto px-6">
+            {/* Section number and title */}
+            <div className="mb-12">
+              <div className="flex items-baseline gap-6">
+                <span className="font-serif text-8xl md:text-9xl font-light text-[#e8e4dc]">3</span>
+                <h2 className="font-serif text-4xl md:text-5xl font-light text-[#1a1a1a]">
+                  Читать
+                </h2>
+              </div>
+            </div>
+            <ReadSection chapters={theme.chapters} />
           </div>
-        </div>
+        </section>
+      )}
+
+      {/* Map Section - now numbered as 4 */}
+      {hasMap && (
+        <section id="map" className="py-16 md:py-24 bg-[#fdfcf8]">
+          <div className="max-w-7xl mx-auto px-6">
+            {/* Section number and title */}
+            <div className="mb-12">
+              <div className="flex items-baseline gap-6">
+                <span className="font-serif text-8xl md:text-9xl font-light text-[#e8e4dc]">4</span>
+                <h2 className="font-serif text-4xl md:text-5xl font-light text-[#1a1a1a]">
+                  На карте
+                </h2>
+              </div>
+            </div>
+            <MapSection mapPoints={theme.mapPoints} />
+          </div>
+        </section>
+      )}
+
+      {/* Back to Home */}
+      <div className="max-w-7xl mx-auto px-6 py-12">
+        <Link 
+          href="/" 
+          className="inline-flex items-center gap-2 text-[#6b6b6b] hover:text-[#1a1a1a] transition-colors"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          {t('backToHome', language)}
+        </Link>
       </div>
     </div>
   );

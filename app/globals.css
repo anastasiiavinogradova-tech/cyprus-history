@@ -12,6 +12,13 @@
   --font-sans: var(--font-manrope);
   --font-serif: var(--font-cormorant);
   --font-display: var(--font-cinzel);
+  
+  /* Arzamas color palette */
+  --color-arzamas-cream: #fdfcf8;
+  --color-arzamas-text: #1a1a1a;
+  --color-arzamas-terracotta: #c4866b;
+  --color-arzamas-grey: #6b6b6b;
+  --color-arzamas-divider: #e8e4dc;
 }
 
 body {
